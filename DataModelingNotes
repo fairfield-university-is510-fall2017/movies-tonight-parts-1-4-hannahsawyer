@@ -1,0 +1,32 @@
+# Data Modeling Notes
+## Normalization Analysis
+### 1NF Conversion
+It is not in 1NF now, because it is missing a PK<br>
+FORMAT3(<u> TName, MTitle, ShowTime, CCode, CName, </u> Location, Phone, Rating)
+### 2NF Conversion
+Dependencies<br>
+  Tname --> Location, Phone<br>
+  MTitle --> Rating<br>
+  (Tname, Showtime)--MTitle<br>
+Tables<br>
+  THEATERS(TheaterID, TName, Location, Phone)<br>
+  MOVIES(MovieID, MTitle, Rating)<br>
+  SHOW(ShowID, TheaterID, MovieID, Showtime)<br>
+  CREDITS(CreditID, ArtistID, MovieID, CCode, CName)<br>
+  ARTIST(ArtistID, Name)<br>
+### 3NF Conversion
+Tables<br>
+  THEATERS(TheaterID, TName, Location, Phone)<br>
+  MOVIES(MovieID, MTitle, Rating)<br>
+  SHOW(ShowID, TheaterID, MovieID, Showtime)<br>
+  CREDITS(CreditID, ArtistID, MovieID, CCode, CName)<br>
+  ARTIST(ArtistID, Name)<br>
+### BCNF
+Tables<br>
+  THEATERS(TheaterID, TName, Location, Phone)<br>
+  MOVIES(MovieID, MTitle, Rating)<br>
+  SHOW(ShowID, TheaterID, MovieID, Showtime)<br>
+  CREDITS(CreditID, ArtistID, MovieID, CCode, CName)<br>
+  ARTIST(ArtistID, Name)<br>
+## Entity Relationship Model<br>
+![MoviesTonightERD](MoviesTonightERD.png)
